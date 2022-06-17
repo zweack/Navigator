@@ -1,0 +1,106 @@
+{
+    "name": "navigator",
+    "displayName": "Navigator",
+    "description": "Browser like back & forward navigation buttons for VS Code",
+    "version": "0.0.1",
+    "publisher": "zweack",
+    "author": {
+        "name": "Jeet Jain"
+    },
+    "license": "MIT",
+    "bugs": {
+        "url": "https://github.com/zweack/Navigator/issues",
+        "email": "hey@gourav.io"
+    },
+    "repository": {
+        "type": "git",
+        "url": "https://github.com/zweack/Navigator"
+    },
+    "homepage": "https://github.com/zweack/Navigator",
+    "keywords": [
+        "shortcut",
+        "toolbar",
+        "navigation",
+        "forward",
+        "button"
+    ],
+    "engines": {
+        "vscode": "^1.8.0"
+    },
+    "categories": [
+        "Other"
+    ],
+    "activationEvents": [
+        "*"
+    ],
+    "main": "./out/src/extension",
+    "contributes": {
+        "configuration": [
+            {
+                "title": "Navigator",
+                "properties": {
+                    "Navigator.navigateBack": {
+                        "title": "Navigate back",
+                        "type": "boolean",
+                        "default": true,
+                        "description": "show icon for 'Navigate back'"
+                    },
+                    "Navigator.navigateForward": {
+                        "title": "Navigate forward",
+                        "type": "boolean",
+                        "default": true,
+                        "description": "show icon for 'Navigate forward'"
+                    }
+                }
+            }
+        ],
+        "commands": [
+            {
+                "command": "Navigator.navigateBack",
+                "title": "Navigate back",
+                "category": "Navigator",
+                "icon": {
+                    "light": "images/triangle-left_light.svg",
+                    "dark": "images/triangle-left.svg"
+                }
+            },
+            {
+                "command": "Navigator.navigateForward",
+                "title": "Navigate forward",
+                "category": "Navigator",
+                "icon": {
+                    "light": "images/triangle-right_light.svg",
+                    "dark": "images/triangle-right.svg"
+                }
+            }
+        ],
+        "menus": {
+            "editor/title": [
+                {
+                    "when": "config.Navigator.navigateBack",
+                    "command": "Navigator.navigateBack",
+                    "group": "navigation@1"
+                },
+                {
+                    "when": "config.Navigator.navigateForward",
+                    "command": "Navigator.navigateForward",
+                    "group": "navigation@1"
+                }
+            ]
+        }
+    },
+    "scripts": {
+        "vscode:prepublish": "npm run compile",
+        "compile": "tsc -p ./",
+        "watch": "tsc -watch -p ./"
+    },
+    "devDependencies": {
+        "typescript": "^4.6.3",
+        "@types/vscode": "^1.65.0",
+        "@types/node": "^17.0.23"
+    },
+    "dependencies": {
+        "generator-code": "^1.6.9",
+        "yo": "^4.3.0"
+    }
+}
