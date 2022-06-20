@@ -13,6 +13,8 @@ export function activate(context: ExtensionContext) {
   let commandArray = [
     ["Navigator.navigateBack", "workbench.action.navigateBack"],
     ["Navigator.navigateForward", "workbench.action.navigateForward"],
+    ["Navigator.navigateBackStatusBar", "workbench.action.navigateBack"],
+    ["Navigator.navigateForwardStatusBar", "workbench.action.navigateForward"],
   ];
   let disposableCommandsArray: Disposable[] = [];
   commandArray.forEach((command) => {
