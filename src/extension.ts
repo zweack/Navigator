@@ -10,11 +10,11 @@ import {
 } from "vscode";
 
 export function activate(context: ExtensionContext) {
+  let _statusBarItemBack: StatusBarItem;
+  let _statusBarItemFwd: StatusBarItem;
   let commandArray = [
     ["Navigator.navigateBack", "workbench.action.navigateBack"],
     ["Navigator.navigateForward", "workbench.action.navigateForward"],
-    ["Navigator.navigateBackStatusBar", "workbench.action.navigateBack"],
-    ["Navigator.navigateForwardStatusBar", "workbench.action.navigateForward"],
   ];
   let disposableCommandsArray: Disposable[] = [];
   commandArray.forEach((command) => {
@@ -24,9 +24,6 @@ export function activate(context: ExtensionContext) {
       })
     );
   });
-  let _statusBarItemBack: StatusBarItem;
-
-  let _statusBarItemFwd: StatusBarItem;
 
   if (!this._statusBarItemBack) {
     this._statusBarItemBack = window.createStatusBarItem(
@@ -42,15 +39,19 @@ export function activate(context: ExtensionContext) {
 
   this._statusBarItemBack.command = "workbench.action.navigateBack";
   this._statusBarItemFwd.command = "workbench.action.navigateForward";
-  this._statusBarItemBack.tooltip = "Back";
-  this._statusBarItemFwd.tooltip = "Forward";
+
+  this._statusBarItemBack.tooltip = "Navigate back";
+  this._statusBarItemFwd.tooltip = "Navigate forward";
 
   this._statusBarItemBack.text = "$(arrow-left)";
-
   this._statusBarItemFwd.text = "$(arrow-right)";
-  this._statusBarItemBack.show();
 
-  this._statusBarItemFwd.show();
+  if (this.navigateForwardStatusBar) {
+    this._statusBarItemFwd.show();
+  }
+  if (this.navigateBackStatusBar) {
+    this._statusBarItemBack.show();
+  }
 
   context.subscriptions.push(_statusBarItemFwd);
   context.subscriptions.push(_statusBarItemBack);
