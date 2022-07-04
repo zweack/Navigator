@@ -1,6 +1,6 @@
 const assert = require('assert');
 
-describe("Basic tests for Navigator", () => {
+describe("", () => {
 	before(() => {
 		console.log("Starting navigation tests");
 	});
