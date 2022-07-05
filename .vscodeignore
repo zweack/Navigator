@@ -8,3 +8,6 @@ src/**
 **/.eslintrc.json
 **/*.map
 **/*.ts
+vscode
+node_modules
+webpack.config.js
