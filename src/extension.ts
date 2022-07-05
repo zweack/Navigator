@@ -15,6 +15,8 @@ export function activate(context: ExtensionContext) {
   let commandArray = [
     ["Navigator.navigateBack", "workbench.action.navigateBack"],
     ["Navigator.navigateForward", "workbench.action.navigateForward"],
+    ["Navigator.navigateBackStatusBar", "workbench.action.navigateBack"],
+    ["Navigator.navigateForwardStatusBar", "workbench.action.navigateForward"],
   ];
   let disposableCommandsArray: Disposable[] = [];
   commandArray.forEach((command) => {
@@ -46,13 +48,9 @@ export function activate(context: ExtensionContext) {
   this._statusBarItemBack.text = "$(arrow-left)";
   this._statusBarItemFwd.text = "$(arrow-right)";
 
-  if (this.navigateForwardStatusBar) {
-    this._statusBarItemFwd.show();
-  }
-  if (this.navigateBackStatusBar) {
-    this._statusBarItemBack.show();
-  }
-
+  this._statusBarItemBack.show();
+  this._statusBarItemFwd.show();
+ 
   context.subscriptions.push(_statusBarItemFwd);
   context.subscriptions.push(_statusBarItemBack);
 }
