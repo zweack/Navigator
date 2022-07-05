@@ -2,7 +2,7 @@
     "name": "vsc-navigator",
     "displayName": "Navigator",
     "description": "Browser like back & forward navigation buttons for VS Code in status bar & menu bar",
-    "version": "0.0.2",
+    "version": "0.0.3",
     "publisher": "zweack",
     "author": {
         "name": "Jeet Jain"
