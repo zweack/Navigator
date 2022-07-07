@@ -6,3 +6,11 @@
 [![GitHub issues](https://img.shields.io/github/issues/zweack/Navigator?style=for-the-badge)](https://github.com/zweack/Navigator/issues)
 
 Browser like back & forward navigation buttons for VS Code in status bar & menu bar.
+
+## Supported Platforms
+
+| Version | Platform           |
+| ------- | ------------------ |
+| Windows | :white_check_mark: |
+| Linux   | :white_check_mark: |
+| Web     | :x:                |
